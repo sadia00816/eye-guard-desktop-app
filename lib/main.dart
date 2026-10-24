@@ -1,5 +1,3 @@
-// ignore_for_file: unused_import
-
 import 'package:flutter/material.dart';
 import 'theme.dart';
 
@@ -15,9 +13,46 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(backgroundColor: Colors.blue ,title: Text('MY APP'),),
-      
-    ),
-  );
-  }
+        appBar: AppBar(
+          backgroundColor: Colors.blue,
+          title: Text('MY APP'),
+          ),
+      body: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+            Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children:[
+            Container(
+             width: 200,
+             child: Column(
+               mainAxisAlignment: MainAxisAlignment.center,
+             children: [
+               TextField( 
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(height:20),
+              TextField(
+                decoration: InputDecoration(
+                  border: OutlineInputBorder(),
+                ),
+              ),
+              SizedBox(height:20),
+              ElevatedButton(
+                onPressed: (){}, 
+                child: Text('login'),
+                ),
+             ]
+          )
+       ),
+
+      ]
+     )
+   ],
+   )
+   )
+ );
+}
 }
