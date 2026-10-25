@@ -13,66 +13,80 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.white,
           title: Text('MY APP'),
+          ), 
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [
+             Colors.blue, Colors.white, 
+           ]
           ),
-    body: Column(
-      children: [
-        Expanded(
-          child: Row(
-          children: [
-            Expanded(
-          child:Container(
-            color: Colors.red,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(24.0),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text('Welcome BS IT', 
+               style:TextStyle(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+                fontSize: 40,
+                ),
+              ),
+              SizedBox(
+                height: 20,
+              ),
+             TextField(
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                filled: true,
+                fillColor: Colors.white,
+                prefixIcon: Icon(Icons.email),
+                hintText: "Enter your email",
+              ),
+             ),
+             SizedBox(
+                height: 20,
+              ), 
+              TextField(
+              obscureText: true,
+              decoration: InputDecoration(
+                border: OutlineInputBorder(),
+                filled: true,
+                fillColor: Colors.white,
+                prefixIcon: Icon(Icons.password),
+                hintText: "Enter your password",
+              ),
+             ),
+             SizedBox(
+                height: 20,
+              ), 
+              Container(
+                width: double.infinity,
+                height: 50,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  gradient: LinearGradient(colors:[
+                   Colors.white, Colors.green ,
+                  ]
+                  )
+                ),
+                child: ElevatedButton(
+                  style: ElevatedButton.styleFrom(
+                    backgroundColor: Colors.transparent,
+                  ),
+                  onPressed: (){}, child: Text('Login')),
+              )
+            ],
+          ),
         ),
       ),
-        Expanded(
-          child:Container(
-            color: Colors.purple,
-        ),
-      ),
-       Expanded(
-          child:Container(
-            color: const Color.fromARGB(255, 54, 158, 244),
-        ),
-      ),
-        Expanded(
-          child:Container(
-             color: const Color.fromARGB(255, 39, 176, 112),
-        ),
-        ),
-      ]
-     )
-    ),
-    Expanded(
-          child: Row(
-          children: [
-            Expanded(
-          child:Container(
-            color: Colors.red,
-        ),
-      ),
-        Expanded(
-          child:Container(
-            color: Colors.purple,
-        ),
-      ),
-       Expanded(
-          child:Container(
-            color: const Color.fromARGB(255, 54, 158, 244),
-        ),
-      ),
-        Expanded(
-          child:Container(
-             color: const Color.fromARGB(255, 39, 176, 112),
-        ),
-        ),
-        ],
-     )
-    )
-    ]
-    )
      ),
     );
-}
+  }
 }
