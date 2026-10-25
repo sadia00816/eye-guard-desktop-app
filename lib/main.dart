@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'theme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,42 +16,69 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.blue,
           title: Text('MY APP'),
           ),
-      body: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-            Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children:[
-            Container(
-             width: 200,
-             child: Column(
-               mainAxisAlignment: MainAxisAlignment.center,
-             children: [
-               TextField( 
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              SizedBox(height:20),
-              TextField(
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                ),
-              ),
-              SizedBox(height:20),
-              ElevatedButton(
-                onPressed: (){}, 
-                child: Text('login'),
-                ),
-             ]
-          )
-       ),
+    body: Column(
+      children: [
+      Row(
+      children: [
+        Expanded(
+          child:Container(
+            height:250,
+            color: Colors.red,
+        ),
+      ),
+        Expanded(
+          child:Container(
+             height: 250,
+            color: Colors.purple,
+        ),
+      ),
+       Expanded(
+          child:Container(
+             height: 250,
+            color: const Color.fromARGB(255, 54, 158, 244),
+        ),
+      ),
+        Expanded(
+          child:Container(
+             height: 250,
+             color: const Color.fromARGB(255, 39, 176, 112),
+        ),
 
-      ]
-     )
-   ],
-   )
-   )
- );
+      )
+    ]
+     ),
+   
+     Row(
+      children: [
+        Expanded(
+          child:Container(
+             height: 250,
+            color: const Color.fromARGB(255, 73, 66, 66),
+        ),
+      ),
+        Expanded(
+          child:Container(
+            height: 250,
+            color: const Color.fromARGB(255, 18, 13, 19),
+        ),
+      ),
+       Expanded(
+          child:Container(
+            height: 250,
+            color: const Color.fromARGB(255, 70, 244, 54),
+        ),
+      ),
+        Expanded(
+          child:Container(
+             height: 250,
+             color: const Color.fromARGB(255, 241, 237, 5),
+        ),
+      )
+    ], 
+    ),
+    ],
+    ),
+   ),
+  );
 }
 }
