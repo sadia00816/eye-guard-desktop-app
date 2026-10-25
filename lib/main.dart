@@ -18,67 +18,61 @@ class MyApp extends StatelessWidget {
           ),
     body: Column(
       children: [
-      Row(
-      children: [
         Expanded(
+          child: Row(
+          children: [
+            Expanded(
           child:Container(
-            height:250,
             color: Colors.red,
         ),
       ),
         Expanded(
           child:Container(
-             height: 250,
             color: Colors.purple,
         ),
       ),
        Expanded(
           child:Container(
-             height: 250,
             color: const Color.fromARGB(255, 54, 158, 244),
         ),
       ),
         Expanded(
           child:Container(
-             height: 250,
              color: const Color.fromARGB(255, 39, 176, 112),
         ),
-
-      )
-    ]
-     ),
-   
-     Row(
-      children: [
-        Expanded(
+        ),
+      ]
+     )
+    ),
+    Expanded(
+          child: Row(
+          children: [
+            Expanded(
           child:Container(
-             height: 250,
-            color: const Color.fromARGB(255, 73, 66, 66),
+            color: Colors.red,
         ),
       ),
         Expanded(
           child:Container(
-            height: 250,
-            color: const Color.fromARGB(255, 18, 13, 19),
+            color: Colors.purple,
         ),
       ),
        Expanded(
           child:Container(
-            height: 250,
-            color: const Color.fromARGB(255, 70, 244, 54),
+            color: const Color.fromARGB(255, 54, 158, 244),
         ),
       ),
         Expanded(
           child:Container(
-             height: 250,
-             color: const Color.fromARGB(255, 241, 237, 5),
+             color: const Color.fromARGB(255, 39, 176, 112),
         ),
-      )
-    ], 
-    ),
-    ],
-    ),
-   ),
-  );
+        ),
+        ],
+     )
+    )
+    ]
+    )
+     ),
+    );
 }
 }
