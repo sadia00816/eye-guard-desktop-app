@@ -3,11 +3,13 @@ import 'package:flutter/material.dart';
 class ChatHistory extends StatelessWidget {
   ChatHistory({super.key, required this.name, required this.n});
 
+
   final String name;
   final int n; 
   List<String> send = [ 
     'hi','hi', "how are you","i am fine", 'what are you doing', 'nothing special',
   ];
+
 
  @override
  Widget build(BuildContext context) {
@@ -36,8 +38,7 @@ class ChatHistory extends StatelessWidget {
                         );
                     },
                   ),
-                
-            ),
+                ),
             Padding(
               padding: const EdgeInsets.all(15.0),
               child: TextField(
