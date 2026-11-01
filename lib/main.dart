@@ -41,6 +41,14 @@ class _MyAppState extends State<MyApp> {
                 ),
               ),
             ),
+            Row(
+              children: [
+                TextButton(onPressed: () {}, child: Text('Unread'),),
+                TextButton(onPressed: () {}, child: Text('All'),),
+                TextButton(onPressed: () {}, child: Text('Favourites'),),
+                TextButton(onPressed: () {}, child: Text('Communities'),),
+              ],
+            ),
             Expanded(
               child: ListView.builder(
                 itemCount: students.length,

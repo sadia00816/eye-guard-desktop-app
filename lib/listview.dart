@@ -14,9 +14,11 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
  bool showPassword = true;
+
  final passwordController = TextEditingController();
+
  List<String> students = [
-  'komal','Arslan','komal', 'Rabia', 'Saba', 'Hadia','samia','Arooj','Aleeza','Amara','Adan','Iqra','Javeria','Hamna','Api','Bhai','komal',
+  'komal','Arslan','Nafees', 'Rabia', 'Saba', 'Hadia','samia','Arooj','Aleeza','Amara','Adan','Iqra','Javeria','Hamna','Api','Bhai','komal',
  ];
 
   @override
