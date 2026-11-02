@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(Loginpage());
   
 }
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class Loginpage extends StatelessWidget {
+   Loginpage({super.key});
   // This widget is the root of your application.
+  bool showpassword = true;
+  final email = TextEditingController();
+  final password = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -42,6 +45,7 @@ class MyApp extends StatelessWidget {
                 height: 20,
               ),
              TextField(
+              controller: email,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 filled: true,
@@ -54,7 +58,8 @@ class MyApp extends StatelessWidget {
                 height: 20,
               ), 
               TextField(
-              obscureText: true,
+              controller: password,
+              obscureText: showpassword,
               decoration: InputDecoration(
                 border: OutlineInputBorder(),
                 filled: true,
@@ -81,12 +86,12 @@ class MyApp extends StatelessWidget {
                     backgroundColor: Colors.transparent,
                   ),
                   onPressed: (){}, child: Text('Login')),
-              )
-            ],
+                )
+              ],
+            ),
           ),
         ),
       ),
-     ),
     );
   }
 }
