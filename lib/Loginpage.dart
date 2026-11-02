@@ -26,7 +26,7 @@ class Loginpage extends StatelessWidget {
           gradient: LinearGradient(
             colors: [
              Colors.blue, Colors.white, 
-           ]
+           ],
           ),
         ),
         child: Padding(
@@ -85,8 +85,8 @@ class Loginpage extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     backgroundColor: Colors.transparent,
                   ),
-                  onPressed: (){}, child: Text('Login')),
-                )
+                  onPressed: (){}, child: Text('Login'),),
+                ),
               ],
             ),
           ),
