@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 class dashboard extends StatelessWidget {
   const dashboard({super.key, required this.name, required this.email});
+  
   final String name;
   final String email;
 
