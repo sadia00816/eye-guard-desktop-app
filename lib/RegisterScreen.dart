@@ -1,9 +1,7 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'dashboard.dart';
 import 'Loginpage.dart';
-
 
 class RegisterScreen extends StatelessWidget {
   const new({
@@ -14,7 +12,6 @@ class RegisterScreen extends StatelessWidget {
     required this.showPassword,
     required this.confirmpassword,
   });
-
   final TextEditingController email;
   final TextEditingController name;
   final TextEditingController password;
