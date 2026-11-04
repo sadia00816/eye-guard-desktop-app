@@ -1,39 +1,31 @@
-import 'package:eye_guard_desktop_app/chat.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'RegisterScreen.dart';
-import 'dashboard.dart';
+import 'freshproject.dart/login_1.dart';
 
-void main(){
+void main() {
   runApp(MyApp());
 }
-class MyApp extends StatefulWidget {
-  const MyApp({super.key});
 
-  @override
-  State<MyApp> createState() => _MyAppState();
-}
-
-class _MyAppState extends State<MyApp> {
-  bool showPassword = true;
-  final passwordController = TextEditingController();
-  final name = TextEditingController();
-  final email= TextEditingController();
+class MyApp extends StatelessWidget {
+  MyApp({super.key});
+  final email = TextEditingController();
   final password = TextEditingController();
-  final confirmpassword = TextEditingController();
+
+  String correctemail = 'sadi123@gmail.com';
+  String correctpassword = '1234567890';
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          title:Text('Whatsapp' , style: TextStyle(color: Colors.white)),
-          backgroundColor: const Color.fromARGB(255, 27, 153, 2),
+          backgroundColor: Colors.indigo,
+          title: Text("log in page"),
+          centerTitle: true,
         ),
-        body:RegisterScreen(email: email, name: name, password: password, showPassword: showPassword, confirmpassword: confirmpassword),
+        body: Login_1(email: email, password: password, correctemail: correctemail, correctpassword: correctpassword),
       ),
     );
   }
 }
-    
+
