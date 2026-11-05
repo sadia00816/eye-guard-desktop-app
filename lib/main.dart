@@ -1,31 +1,40 @@
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'freshproject.dart/login_1.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  MyApp({super.key});
-  final email = TextEditingController();
-  final password = TextEditingController();
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
 
-  String correctemail = 'sadi123@gmail.com';
-  String correctpassword = '1234567890';
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  int counter = 1;
 
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
       home: Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.indigo,
-          title: Text("log in page"),
-          centerTitle: true,
+          title: Text("count"),
+          backgroundColor: Colors.blue,
         ),
-        body: Login_1(email: email, password: password, correctemail: correctemail, correctpassword: correctpassword),
-      ),
+        body: Center(
+          child:Text('Counter: $counter'),
+        ),
+        floatingActionButton: FloatingActionButton(
+          onPressed: (){
+          setState((){
+            counter++;
+          });
+        },child: Icon(Icons.add),
+        ),
+      )
     );
   }
 }
-

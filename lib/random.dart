@@ -1,8 +1,8 @@
-import 'package:eye_guard_desktop_app/chat.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'RegisterScreen.dart';
-import 'dashboard.dart';
+
 
 void main(){
   runApp(MyApp());
