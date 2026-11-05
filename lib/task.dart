@@ -11,10 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       home: Scaffold(
-        appBar: AppBar(
-          title: Text("BS"),
-          backgroundColor: Colors.blue,
-        ),
+        appBar: AppBar(),
       body: Container(
         child: Text("show Store"),
          

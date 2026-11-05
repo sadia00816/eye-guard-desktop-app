@@ -1,8 +1,11 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 
-void main() {
+void main() async{
+  WidgetsFlutterBinding.ensureInitialized();
+  await GetStorage.init();
   runApp(const MyApp());
 }
 
@@ -14,7 +17,14 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int counter = 1;
+  RxInt counter = 1.obs;
+  final box = GetStorage();
+
+  @override
+  void initState() {
+    super.initState();
+    counter.value = box.read('counter') ?? 0;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +34,24 @@ class _MyAppState extends State<MyApp> {
           title: Text("count"),
           backgroundColor: Colors.blue,
         ),
-        body: Center(
-          child:Text('Counter: $counter'),
+        body: Obx(
+          ()=> Center(
+            child:Column(
+              children: [
+                Text('Counter: ${counter.value}'),
+                ElevatedButton(onPressed: (){
+                  counter.value--;
+                    box.write('counter',counter.value);
+                  }, child: Icon(Icons.remove),
+                ),
+              ],
+            ),
+          ),
         ),
         floatingActionButton: FloatingActionButton(
           onPressed: (){
-          setState((){
+          box.write('counter', counter.value);
             counter++;
-          });
         },child: Icon(Icons.add),
         ),
       )
