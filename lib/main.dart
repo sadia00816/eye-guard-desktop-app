@@ -1,7 +1,9 @@
 
+import 'package:eye_guard_desktop_app/Loginpage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'app_routes.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
@@ -29,32 +31,51 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("count"),
-          backgroundColor: Colors.blue,
-        ),
-        body: Obx(
-          ()=> Center(
-            child:Column(
-              children: [
-                Text('Counter: ${counter.value}'),
-                ElevatedButton(onPressed: (){
-                  counter.value--;
-                    box.write('counter',counter.value);
-                  }, child: Icon(Icons.remove),
-                ),
-              ],
+      initialRoute: Approutes.login,
+      getPages: Approutes.pages,
+//       home: Scaffold(
+//         appBar: AppBar(
+//           title: Text("count"),
+//           backgroundColor: Colors.blue,
+//         ),
+//         body: HomeScreen(counter: counter, box: box),
+//         floatingActionButton: FloatingActionButton(
+//           onPressed: (){
+//             Get.to(Loginpage());
+//             box.write('counter', counter.value);
+//             counter++;
+//         },child: Icon(Icons.add),
+//         ),
+//       )
+    );
+  }
+}
+
+class HomeScreen extends StatelessWidget {
+  const new({
+    super.key,
+    required this.counter,
+    required this.box,
+  });
+
+  final RxInt counter;
+  final GetStorage box;
+
+  @override
+  Widget build(BuildContext context) {
+    return Obx(
+      ()=> Center(
+        child:Column(
+          children: [
+            Text('Counter: ${counter.value}'),
+            ElevatedButton(onPressed: (){
+              counter.value--;
+                box.write('counter',counter.value);
+              }, child: Icon(Icons.remove),
             ),
-          ),
+          ],
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: (){
-          box.write('counter', counter.value);
-            counter++;
-        },child: Icon(Icons.add),
-        ),
-      )
+      ),
     );
   }
 }
