@@ -1,14 +1,8 @@
-
-import 'package:eye_guard_desktop_app/Loginpage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
-import 'app_routes.dart';
 
-void main() async{
-  WidgetsFlutterBinding.ensureInitialized();
-  await GetStorage.init();
-  runApp(const MyApp());
+void main(){
+  runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -19,61 +13,110 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  RxInt counter = 1.obs;
-  final box = GetStorage();
-
-  @override
-  void initState() {
-    super.initState();
-    counter.value = box.read('counter') ?? 0;
-  }
-
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      initialRoute: Approutes.login,
-      getPages: Approutes.pages,
-//       home: Scaffold(
-//         appBar: AppBar(
-//           title: Text("count"),
-//           backgroundColor: Colors.blue,
-//         ),
-//         body: HomeScreen(counter: counter, box: box),
-//         floatingActionButton: FloatingActionButton(
-//           onPressed: (){
-//             Get.to(Loginpage());
-//             box.write('counter', counter.value);
-//             counter++;
-//         },child: Icon(Icons.add),
-//         ),
-//       )
-    );
-  }
-}
-
-class HomeScreen extends StatelessWidget {
-  const new({
-    super.key,
-    required this.counter,
-    required this.box,
-  });
-
-  final RxInt counter;
-  final GetStorage box;
-
-  @override
-  Widget build(BuildContext context) {
-    return Obx(
-      ()=> Center(
-        child:Column(
-          children: [
-            Text('Counter: ${counter.value}'),
-            ElevatedButton(onPressed: (){
-              counter.value--;
-                box.write('counter',counter.value);
-              }, child: Icon(Icons.remove),
+      home:Scaffold(
+        appBar: AppBar(
+          title: Text('Shoe Store',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+          actions: [Icon(Icons.shopping_bag_outlined),],
+        ),
+        body: SingleChildScrollView(
+          child:Padding(
+            padding: const EdgeInsets.all(14.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+               children: [
+                 Container(
+                  height: 200,
+                  width: double.infinity,
+                  decoration: BoxDecoration(),
+                  child: Image.asset('assets/images/image1.jfif'),
+                 ),
+                 SizedBox(height: 15,),
+                 Text('Sport Shoes',
+                    style: TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                  ),
+                ),
+                 SizedBox(height: 15),
+                 Text('Premium Quality Shoes', style: TextStyle(fontSize: 14, color: Colors.grey),),
+                 SizedBox(height: 15),
+                 Text('Rs. 2500',style: TextStyle(color: Colors.green, fontSize: 20, fontWeight: FontWeight.bold),),
+                 SizedBox(height: 15),
+                 Text('Selected Shoe Type', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                 SizedBox(height: 15),
+                Row(
+                  children: [
+                    ElevatedButton(onPressed: (){}, child: Text('Sport'),),
+                    SizedBox(width: 15),
+                    ElevatedButton(onPressed: (){}, child: Text('Casual'),),
+                    SizedBox(width: 15),
+                    ElevatedButton(onPressed: (){}, child: Text('Running'),),
+                    SizedBox(width: 15),
+                  ],
+                ),
+                SizedBox(height: 15),
+                Text('Selected Color', style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                SizedBox(height: 15),
+                Row(
+                  children: [
+                    CircleAvatar(backgroundColor: Colors.black),
+                     SizedBox(width: 15),
+                    CircleAvatar(backgroundColor: Colors.red),
+                     SizedBox(width: 15),
+                    CircleAvatar(backgroundColor: Colors.blue),
+                     SizedBox(width: 15),
+                    CircleAvatar(backgroundColor: Colors.green),
+                  ],
+                ),
+                SizedBox(height: 15),
+                Text('Selected Size',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                SizedBox(height: 15),
+                Row(
+                  children: [
+                    ElevatedButton(onPressed: (){},
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadiusGeometry.circular(4),
+                      ) 
+                    ),
+                     child: Text('39'),
+                    ),
+                    SizedBox(width: 15),
+                    ElevatedButton(onPressed: (){}, child: Text('40'),),
+                    SizedBox(width: 15),
+                    ElevatedButton(onPressed: (){}, child: Text('41'),),
+                    SizedBox(width: 15),
+                    ElevatedButton(onPressed: (){}, child: Text('42'),),
+                  ],
+                ),
+                SizedBox(height: 15),
+                Text('Quantity',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                SizedBox(height: 15),
+                Row(
+                  children: [
+                    Icon(Icons.remove_circle_outline),
+                    SizedBox(width: 15),
+                    Text('1'),
+                    SizedBox(width: 15),
+                    Icon(Icons.add_circle_outline),
+                  ],
+                ),
+                SizedBox(height: 15),
+                Text('Total: Rs.2500', style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),),
+                SizedBox(height: 15),
+                SizedBox(height: 45,
+                width: double.infinity,
+                child:ElevatedButton(onPressed: (){}, 
+                  style: ElevatedButton.styleFrom(backgroundColor: Colors.black), 
+                  child:Text('ADD TO CART', style: TextStyle(color:Colors.white),),
+                  ),
+                )
+              ],
             ),
-          ],
+          ),  
         ),
       ),
     );
